@@ -708,6 +708,9 @@ class WalkSatEstado():
     
 from  random import choice, uniform
 
+
+## NOT WORKING
+
 def walkSAT(S, max_flips = 1000, max_tries= 100 , p = .5):
     w= WalkSatEstado(S)
     for x in range(max_tries):
