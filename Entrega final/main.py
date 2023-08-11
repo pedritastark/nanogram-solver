@@ -12,7 +12,7 @@ from itertools import combinations
 La libreria logica contiene clases y fuciones para logica proposicional, funciones como
 SATsolvers que resuelven el problema construido
 '''
-from Logica import *
+from logic import *
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from matplotlib.offsetbox import AnnotationBbox, OffsetImage
