@@ -37,12 +37,13 @@ def escribir_casillas(self, literal):
 
       
 
-
-## La clase nanograma es la encargada de crear objetos que son nanogramas unicos con
-# ciertas condiciones iniciales cada uno para asi resolver cualquier tipo de argumentos
-# las condiciones iniciales son los numeros que aparecerian normalmente en un anograma encima
-# de cada fila y columna este indica la cantidad de casillas que deben ir rellenas en la
-# fila/columna ubducada
+'''
+La clase nanograma es la encargada de crear objetos que son nanogramas unicos con
+ciertas condiciones iniciales cada uno para asi resolver cualquier tipo de argumentos
+las condiciones iniciales son los numeros que aparecerian normalmente en un anograma encima
+de cada fila y columna este indica la cantidad de casillas que deben ir rellenas en la
+fila/columna ubducada
+'''
 
 class Nanograma:
     
@@ -81,10 +82,10 @@ class Nanograma:
         
         # Este metodo esta encargado de elegir las 10 reglas que se van a necesitar para resolver el nanograma
         # Dadas las condiciones iniciales
-        
-        
-        # Al iniciar         self.reglas = []
+        # Al iniciar  self.reglas = []
         # finalizando este ciclo self.reglas tendra 10 reglas las cuales son la Ytoria de la solucion
+
+        
         for x in self.condiciones_iniciales.keys(): 
             # Si la condicion es un numero solo va a hacer append de la regla a self.reglas dependiendo del numero que es la condicion inicial
             # Para esa fila y/o columna
@@ -407,52 +408,52 @@ de la logica proposicional en python
 # print(A.ver(c.RenC))
 
 
-
+'''
 ##                              DPLL
-#  Este algoritmo toma la regla general para encontrar la solucion que es una 
-#   Ytoria de todas las reglas para encontrar una posible solucion el algortimo DPLL
-#   funciona de la siguiente manera :  
-#   veerifica la satisfacibilidad de una formula, y encontrar un modelo de la misma
-#   encontrando una interpretacion que vuelva verdadera la formula 
-#   - mas detalles en Logica.py
-#   
-#
-#   Luego de hacer varias pruebas comparando tiempos se concluye 
-#   que este es el mejor algoritmo para enconrtar solucion al problema con un tiempo medio 
-#   cercano a los --- 0.18398690223693848 seconds ---
+   Este algoritmo toma la regla general para encontrar la solucion que es una 
+   Ytoria de todas las reglas para encontrar una posible solucion el algortimo DPLL
+   funciona de la siguiente manera :  
+   veerifica la satisfacibilidad de una formula, y encontrar un modelo de la misma
+   encontrando una interpretacion que vuelva verdadera la formula 
+   - mas detalles en Logica.py
+   
 
- 
-# start_time = time.time()
+   Luego de hacer varias pruebas comparando tiempos se concluye 
+   que este es el mejor algoritmo para enconrtar solucion al problema con un tiempo medio 
+   cercano a los --- 0.18398690223693848 seconds ---
 
-# A = Ytoria(c.reglas)
-# S = tseitin(A)
-# S, I = dpll(S, {})
+ '''
+start_time = time.time()
+
+A = Ytoria(c.reglas)
+S = tseitin(A)
+S, I = dpll(S, {})
 
 
-# if I != None:
-#     for k in I:
-#         c.RenC.escribir(k), I[k]
+if I != None:
+    for k in I:
+        c.RenC.escribir(k), I[k]
             
         
-# else:
-#     print('¡No hay solución!')
+else:
+    print('¡No hay solución!')
 
-# c.visualizar(I)
+c.visualizar(I)
 
-# print("--- %s seconds ---" % (time.time() - start_time))  
-
-
+print("--- %s seconds ---" % (time.time() - start_time))  
 
 
+
+'''
 ##                          SAT tableaux
-# SATtableaux es uno de esos algirtimos que funciona diviendo la formula
-# como si se tratara de un arbol, asi al final solo se tendran hojas a las cuales
-# se les da una interpretacion para que la formula sea verdadera
-#
-# Posterior a las pruebas se concluye que el tiempo medio variando con la complejidad
-# esta cercanoo a --- 11.225515842437744 seconds ---
+ SATtableaux es uno de esos algirtimos que funciona diviendo la formula
+ como si se tratara de un arbol, asi al final solo se tendran hojas a las cuales
+ se les da una interpretacion para que la formula sea verdadera
 
+ Posterior a las pruebas se concluye que el tiempo medio variando con la complejidad
+ esta cercanoo a --- 11.225515842437744 seconds ---
 
+'''
 
 
 
@@ -479,26 +480,25 @@ de la logica proposicional en python
 ##  WalkSAT
 
 
+## Not working
 
-## SE NECESITA CORREGIR BIEN ESTE SATSOLVER PARA ANALIZAR RESULTADOS
+#start_time = time.time()
 
-start_time = time.time()
-
-A = Ytoria(c.reglas)
-S = tseitin(A)
-S, I = walkSAT(S)
+#A = Ytoria(c.reglas)
+#S = tseitin(A)
+#S, I = walkSAT(S)
 
 
-if I != None:
-    for k in I:
-        print(c.RenC.escribir(k), I[k])
+#if I != None:
+    #for k in I:
+        #print(c.RenC.escribir(k), I[k])
             
         
-else:
-    print('¡No hay solución!')
+#else:
+#    print('¡No hay solución!')
 
-c.visualizar(I)
+#c.visualizar(I)
 
 
-print("--- %s seconds ---" % (time.time() - start_time))  
+#print("--- %s seconds ---" % (time.time() - start_time))  
 
