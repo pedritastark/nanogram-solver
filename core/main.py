@@ -6,10 +6,7 @@ nonogram will be displayed using the Matplotlib library.
 
 from itertools import combinations
 
-'''
-La libreria logica contiene clases y fuciones para logica proposicional, funciones como
-SATsolvers que resuelven el problema construido
-'''
+
 from init import *
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
