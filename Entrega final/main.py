@@ -80,8 +80,7 @@ Reference: https://nonogramas.relaxweb.es/nonograma/96041
 #
     
     def clasificador_reglas(self):
-        
-      '''
+        '''
         This method is responsible for selecting the 10 rules needed to solve the Nonogram puzzle
         based on the given initial conditions. 
         Upon initialization, self.rules = []
@@ -90,10 +89,10 @@ Reference: https://nonogramas.relaxweb.es/nonograma/96041
 
         
         for x in self.condiciones_iniciales.keys(): 
-        '''
-        If the condition is a number, it will simply append the rule to self.rules based on the numeric value
-        of the initial condition for that row and/or column.
-        '''
+            '''
+            If the condition is a number, it will simply append the rule to self.rules based on the numeric value
+            of the initial condition for that row and/or column.
+            '''
 
             try:
                 funciones_regla = {0: self.regla1, 1: self.regla2, 2: self.regla3,3: self.regla4, 4: self.regla5, 5: self.regla6}
