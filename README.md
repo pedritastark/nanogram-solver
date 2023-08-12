@@ -32,3 +32,7 @@ Given that the objective of the problem is to solve any 5x5 Nanogram, all possib
 
 As previously clarified, in a 5x5 Nanogram, there are 10 specific rules, and these rules are always included within the set of 26 predefined rules.
 
+# visualization
+
+
+
