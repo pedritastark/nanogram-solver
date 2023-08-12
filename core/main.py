@@ -47,10 +47,10 @@ in the corresponding row/column.
 
 class Nanograma:
     
-'''
-Class representation for solving the Nonogram puzzle.
-Reference: https://nonogramas.relaxweb.es/nonograma/96041
-'''
+    '''
+    Class representation for solving the Nonogram puzzle.
+    Reference: https://nonogramas.relaxweb.es/nonograma/96041
+    '''
 
 
     def __init__(self):
@@ -60,18 +60,18 @@ Reference: https://nonogramas.relaxweb.es/nonograma/96041
         self.condiciones_iniciales =  {x : None for x in range(10)}
         
         # Initial conditions for the rows
-        self.condiciones_iniciales[0] = 1
-        self.condiciones_iniciales[1] = 1
-        self.condiciones_iniciales[2] = 2
-        self.condiciones_iniciales[3] = [2,1]
-        self.condiciones_iniciales[4] = 2
+        self.condiciones_iniciales[0] = 4
+        self.condiciones_iniciales[1] = 2
+        self.condiciones_iniciales[2] = [1,1]
+        self.condiciones_iniciales[3] = 1
+        self.condiciones_iniciales[4] = [2,2]
         
         # Initial conditions for the columns
-        self.condiciones_iniciales[5] = 2
-        self.condiciones_iniciales[6] = 3
-        self.condiciones_iniciales[7] = 1
-        self.condiciones_iniciales[8] = [1,1]
-        self.condiciones_iniciales[9] = 1
+        self.condiciones_iniciales[5] = [1,1]
+        self.condiciones_iniciales[6] = [1,1]
+        self.condiciones_iniciales[7] = 2
+        self.condiciones_iniciales[8] = [2,1]
+        self.condiciones_iniciales[9] = [1,3]
         
 
 
@@ -201,7 +201,7 @@ Reference: https://nonogramas.relaxweb.es/nonograma/96041
         if cr<5:
             intervalo_actual= [(cr,x) for x in range(5)]
             for x in range(2):
-                iterales = [self.RenC.P([cr,x]), self.RenC.P([cr,x+1]), self.RenC.__P([cr, x+2]), self.RenC.P([cr, x+3])]
+                iterales = [self.RenC.P([cr,x]), self.RenC.P([cr,x+1]), self.RenC.P([cr, x+2]), self.RenC.P([cr, x+3])]
                 lista_negaciones = [ '-' + self.RenC.P([*i])  for i in intervalo_actual if i[1] not in range(x, x+4)]
                 lista.append(Ytoria(iterales + lista_negaciones))
                 
