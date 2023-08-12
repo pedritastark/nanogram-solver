@@ -1,6 +1,6 @@
 '''
-Librería con las clases y funciones
-para lógica proposicional
+Library with classes and 
+functions for propositional logic
 '''
 
 from itertools import product
@@ -310,11 +310,10 @@ def inorder_to_tree(cadena:str):
 class Descriptor :
 
     '''
-    Codifica un descriptor de N argumentos mediante un solo caracter
-    Input:  args_lista, lista con el total de opciones para cada
-                     argumento del descriptor
-            chrInit, entero que determina el comienzo de la codificación chr()
-    Output: str de longitud 1
+    Encode a descriptor of N arguments using a single character
+    Input: args_list, a list with the total options for each argument of the descriptor
+    chrInit, an integer determining the start of the chr() encoding
+    Output: str of length 1
     '''
 
     def __init__ (self,args_lista,chrInit=256) :
@@ -493,14 +492,14 @@ class nodos_tableaux:
             return [None, None]
 
 def a_clausal(A):
-    # Subrutina de Tseitin para encontrar la FNC de
-    # la formula en la pila
-    # Input: A (cadena) de la forma
+   # Tseitin Subroutine to find the CNF of the formula in the stack
+    # Input: A (string) in the form
     #                   p=-q
-    #                   p=(qYr)
-    #                   p=(qOr)
-    #                   p=(q>r)
-    # Output: B (cadena), equivalente en FNC
+    #                   p=(qANDr)
+    #                   p=(qORr)
+    #                   p=(q->r)
+    # Output: B (string), equivalent in CNF
+
     assert(len(A)==4 or len(A)==7), u"Fórmula incorrecta!"
     B = ''
     p = A[0]
@@ -542,23 +541,23 @@ def a_clausal(A):
 
 def tseitin(A):
     '''
-    Algoritmo de transformacion de Tseitin
-    Input: A (cadena) en notacion inorder
-    Output: B (cadena), Tseitin
+    # Tseitin Transformation Algorithm
+    # Input: A (string) in infix notation
+    # Output: B (string), Tseitin transformation
     '''
-    # Creamos letras proposicionales nuevas
+    # Creating new propositional letters
     f = inorder_to_tree(A)
     letrasp = f.letras()
     cods_letras = [ord(x) for x in letrasp]
     m = max(cods_letras) + 256
     letrasp_tseitin = [chr(x) for x in range(m, m + f.num_conec())]
     letrasp = list(letrasp) + letrasp_tseitin
-    L = [] # Inicializamos lista de conjunciones
-    Pila = [] # Inicializamos pila
-    i = -1 # Inicializamos contador de variables nuevas
-    s = A[0] # Inicializamos símbolo de trabajo
-    while len(A) > 0: # Recorremos la cadena
-        # print("Pila:", Pila, " L:", L, " s:", s)
+    L = [] # Initializing a list of conjunction
+    Pila = [] # Initializing a stack
+    i = -1  # Initializing a counter for new variable
+    s = A[0] # Initializing a working symbol
+    while len(A) > 0: # # Traversing the string
+        # print("Stack:", Pila, " L:", L, " s:", s)
         if (s in letrasp) and (len(Pila) > 0) and (Pila[-1]=='-'):
             i += 1
             atomo = letrasp_tseitin[i]
@@ -613,14 +612,15 @@ def extender_I(I, l):
 
 def unit_propagate(S, I):
     '''
-    Algoritmo para eliminar clausulas unitarias de un conjunto de clausulas, manteniendo su satisfacibilidad
-    Input: 
-        - S, conjunto de clausulas
-        - I, interpretacion (diccionario {literal: True/False})
-    Output: 
-        - S, conjunto de clausulas
-        - I, interpretacion (diccionario {literal: True/False})
+    Algorithm to remove unit clauses from a set of clauses while preserving their satisfiability
+    Input:
+        - S, set of clauses
+        - I, interpretation (dictionary {literal: True/False})
+    Output:
+        - S, set of clauses
+        - I, interpretation (dictionary {literal: True/False})
     '''
+
     while [] not in S:
         l = ''
         for x in S:
@@ -629,7 +629,7 @@ def unit_propagate(S, I):
                 S = eliminar_literal(S, l)
                 I = extender_I(I, l)
                 break
-        if l == '': # Se recorrió todo S y no se encontró unidad
+        if l == '': # Traversed entire S and no unit clause was found.
             break
     return S, I
 
@@ -637,13 +637,14 @@ def unit_propagate(S, I):
 from random import choice
 def dpll(S, I):
     '''
-    Algoritmo para verificar la satisfacibilidad de una formula, y encontrar un modelo de la misma
-    Input: 
-        - S, conjunto de clausulas
-        - I, interpretacion (diccionario literal->True/False)
-    Output: 
-        - String, Satisfacible/Insatisfacible
-        - I ,interpretacion (diccionario literal->True/False)
+    Algorithm to check the satisfiability of a formula and find a model for it
+    Input:
+        - S, set of clauses
+        - I, interpretation (dictionary literal->True/False)
+    Output:
+        - String, Satisfiable/Unsatisfiable
+        - I, interpretation (dictionary literal->True/False)
+
     '''
     S,I=unit_propagate(S,I)
     if len(S)==0:
