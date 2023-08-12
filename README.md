@@ -9,7 +9,9 @@ The problem can be defined as an n x n grid in which each column and row is spec
 A grid of size 5x5 will be used.
 
 
-![Texto alternativo](core/img/emptynanogram.png)
+<p align="center">
+  <img src="core/img/emptynanogram.png" alt="Texto alternativo" width="300">
+</p>
 
 
 # example
@@ -17,14 +19,18 @@ For the example, we will work with figure two, focusing on the first rows and th
 
 For the first row, the number 2 is given, indicating that we will fill only two consecutive squares in that row. A valid interpretation could be as follows:
 
+<p align="center">
+  <img src="core/img/figura2.png" alt="Texto alternativo" width="300">
+</p>
 
-![Texto alternativo](core/img/figura2.png)
 
 
 For the second row, we have the sequence 2-2. This implies that we will fill one square first and then leave at least one empty space before filling the next square, as indicated by the second number in the sequence. The only valid interpretation would be as follows:
 
 
-![Texto alternativo](core/img/figura3.jpg)
+<p align="center">
+  <img src="core/img/figura3.jpg" alt="Texto alternativo" width="300">
+</p>
 
 # rules
 
@@ -33,6 +39,46 @@ Given that the objective of the problem is to solve any 5x5 Nanogram, all possib
 As previously clarified, in a 5x5 Nanogram, there are 10 specific rules, and these rules are always included within the set of 26 predefined rules.
 
 # visualization
+
+We will use matplotlib.pyplot for visualization. After creating the "nanogram" object and using a SATSolver to find a potential solution, we will represent the solution using a graph. Let's provide an example to make everything simpler.
+
+Suppose the following nanogram:
+
+<p align="center">
+  <img src="core/img/example.png" alt="Texto alternativo" width="300">
+</p>
+
+<pre>
+```python
+# Initial conditions for the rows
+self.condiciones_iniciales[0] = 4
+self.condiciones_iniciales[1] = 2
+self.condiciones_iniciales[2] = [1,1]
+self.condiciones_iniciales[3] = 1
+self.condiciones_iniciales[4] = [2,2]
+
+# Initial conditions for the columns
+self.condiciones_iniciales[5] = [1,1]
+self.condiciones_iniciales[6] = [1,1]
+self.condiciones_iniciales[7] = 2
+self.condiciones_iniciales[8] = [2,1]
+self.condiciones_iniciales[9] = [1,3]
+```
+</pre>
+
+Initializing the example object, the main.py It would look like the image above. After use the solver the output will be this
+
+<p align="center">
+  <img src="core/img/exampleoutput.png" alt="Texto alternativo" width="300">
+</p>
+
+
+
+The plot generated is the image of the solved nanogram.
+
+
+
+
 
 
 
