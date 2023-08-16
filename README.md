@@ -10,7 +10,7 @@ A grid of size 5x5 will be used.
 
 
 <p align="center">
-  <img src="core/img/emptynanogram.png" alt="Texto alternativo" width="300">
+  <img src="src/img/emptynanogram.png" alt="Texto alternativo" width="300">
 </p>
 
 
@@ -20,7 +20,7 @@ For the example, we will work with figure two, focusing on the first rows and th
 For the first row, the number 2 is given, indicating that we will fill only two consecutive squares in that row. A valid interpretation could be as follows:
 
 <p align="center">
-  <img src="core/img/figura2.png" alt="Texto alternativo" width="300">
+  <img src="src/img/figura2.png" alt="Texto alternativo" width="300">
 </p>
 
 
@@ -29,7 +29,7 @@ For the second row, we have the sequence 2-2. This implies that we will fill one
 
 
 <p align="center">
-  <img src="core/img/figura3.jpg" alt="Texto alternativo" width="300">
+  <img src="src/img/figura3.jpg" alt="Texto alternativo" width="300">
 </p>
 
 # rules
@@ -45,7 +45,7 @@ We will use matplotlib.pyplot for visualization. After creating the "nanogram" o
 Suppose the following nanogram:
 
 <p align="center">
-  <img src="core/img/example.png" alt="Texto alternativo" width="300">
+  <img src="src/img/example.png" alt="Texto alternativo" width="300">
 </p>
 
 <pre>
@@ -69,7 +69,7 @@ self.condiciones_iniciales[9] = [1,3]
 Initializing the example object, the main.py It would look like the image above. After use the solver the output will be this
 
 <p align="center">
-  <img src="core/img/exampleoutput.png" alt="Texto alternativo" width="300">
+  <img src="src/img/exampleoutput.png" alt="Texto alternativo" width="300">
 </p>
 
 
