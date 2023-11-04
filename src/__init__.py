@@ -1,5 +1,5 @@
 '''
-Library with classes and 
+Library with classes and
 functions for propositional logic
 '''
 
@@ -594,7 +594,7 @@ def complemento(n):
         return n[1:]
     else:
         return '-'+n
-    
+
 
 
 def eliminar_literal(S, l):
@@ -662,10 +662,10 @@ def dpll(S, I):
         newS=eliminar_literal(S,lc)
         newI=extender_I(I,lc)
         return dpll(newS,newI)
-    
-    
-    
-    
+
+
+
+
 from random import randint
 from copy import deepcopy
 
@@ -683,7 +683,7 @@ def flip_literal(I, l):
 
 
 class WalkSatEstado():
-    
+
     def __init__(self, S):
         self.S = S
         self.letrasp = list(set([l[-1] for C in self.S for l in C]))
@@ -697,44 +697,44 @@ class WalkSatEstado():
         self.I_lits = set([p for p in self.letrasp if self.I[p]] + ['-'+p for p in self.letrasp if not self.I[p]])
         self.clausulas_sat = [C for C in self.S if any((True for x in self.I_lits if x in C))]
         self.clausulas_unsat = [C for C in self.S if C not in self.clausulas_sat]
-       
+
     def SAT(self):
         return len(self.clausulas_unsat) == 0
 
     def break_count(self, l):
         clausulas_break_count = [C for C in self.clausulas_sat if set(C).intersection(self.I_lits)==set([l])]
         return len(clausulas_break_count)
-    
-    
-    
+
+
+
 from  random import choice, uniform
 
 
 ## NOT WORKING
 
-def walkSAT(S, max_flips = 1000, max_tries= 100 , p = .5):
-    w= WalkSatEstado(S)
-    for x in range(max_tries):
-        w.actualizar(interpretacion_aleatoria(w.letrasp))
-        for j in range(max_flips):
-            if w.SAT(): return "Satisfacible", w.I
-            c  = choice(w.clausulas_unsat)
-            breaks = [(l, w.break_count(l)) for l in c]
-            if any((i[1] == 0 for i in breaks)) > 0: 
-                v = choice(breaks)[0]
-            else:
-                if uniform(0,1) < p:
-                    assert(len(c)>0), f'{c}'
-                else:
-                    min_count = min([q[1] for q in breaks])
-                    mins = [z[0] for z in breaks if z[1] == min_count]
-                    v = choice(mins)     
-            I = flip_literal(w.I, v) 
-            w.actualizar(interpretacion_aleatoria(w.letrasp))
-    print('intento fallido')
-    return None
-
-
+#def walkSAT(S, max_flips = 1000, max_tries= 100 , p = .5):
+#    w= WalkSatEstado(S)
+#    for x in range(max_tries):
+#        w.actualizar(interpretacion_aleatoria(w.letrasp))
+#        for j in range(max_flips):
+#            if w.SAT(): return "Satisfacible", w.I
+#            c  = choice(w.clausulas_unsat)
+#            breaks = [(l, w.break_count(l)) for l in c]
+#            if any((i[1] == 0 for i in breaks)) > 0:
+#                v = choice(breaks)[0]
+#            else:
+#                if uniform(0,1) < p:
+#                    assert(len(c)>0), f'{c}'
+#                else:
+#                    min_count = min([q[1] for q in breaks])
+#                    mins = [z[0] for z in breaks if z[1] == min_count]
+#                    v = choice(mins)
+#            I = flip_literal(w.I, v)
+#            w.actualizar(interpretacion_aleatoria(w.letrasp))
+#    print('intento fallido')
+#    return None
+#
+#
 
 
 
