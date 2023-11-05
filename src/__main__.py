@@ -81,7 +81,7 @@ class Nanogram:
 
     def rules_classifier(self):
         '''
-        This method is responsible for selecting the 10 rules needed to solve the Nonogram puzzle
+        Description: This method is responsible for selecting the 10 rules needed to solve the Nonogram puzzle
         based on the given initial conditions.
         Upon initialization, self.rules = []
         At the end of this process, self.rules will contain 10 rules which form the core of the solution.
