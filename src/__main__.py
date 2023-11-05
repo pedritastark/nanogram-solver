@@ -60,18 +60,18 @@ class Nanogram:
         self.initial_conditions    =  {x : None for x in range(10)}
 
         # Initial conditions for the rows
-        self.initial_conditions[0] =  4
-        self.initial_conditions[1] =  2
-        self.initial_conditions[2] =  [1,1]
-        self.initial_conditions[3] =  1
-        self.initial_conditions[4] =  [2,2]
+        self.initial_conditions[0] =  1
+        self.initial_conditions[1] =  1
+        self.initial_conditions[2] =  2
+        self.initial_conditions[3] =  [2,1]
+        self.initial_conditions[4] =  2
 
         # Initial conditions for the columns
-        self.initial_conditions[5] =  [1,1]
-        self.initial_conditions[6] =  [1,1]
-        self.initial_conditions[7] =  2
-        self.initial_conditions[8] =  [2,1]
-        self.initial_conditions[9] =  [1,3]
+        self.initial_conditions[5] =  2
+        self.initial_conditions[6] =  3
+        self.initial_conditions[7] =  1
+        self.initial_conditions[8] =  [1,1]
+        self.initial_conditions[9] =  1
 
 
 
