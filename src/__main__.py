@@ -27,12 +27,12 @@ def write_cells(self, literal):
     
     if '-' in literal:
         atomo = literal[1:]
-        neg = ' No'
+        neg = ' not'
     else:
         atomo = literal
         neg = ''
     x, y  = self.inv(atomo)
-    return f"La casilla ({x},{y}) {neg} esta rellena"
+    return f"The cell ({x},{y}) is {neg} filled"
 
 
 
@@ -465,7 +465,7 @@ if I != None:
 
 
 else:
-    print('¡No hay solución!')
+    print('¡No solution!')
 
 c.visualize(I)
 
@@ -497,7 +497,8 @@ is approximately --- 11.225515842437744 seconds ---
 #     for k in I:
 #         print(c.RenC.write(k), I[k])
 # else:
-#     print('¡No hay solución!')
+     # print('¡No solution!')
+
 
 # c.visualize(I)
 
@@ -525,7 +526,7 @@ is approximately --- 11.225515842437744 seconds ---
 
 
 #else:
-#    print('¡No hay solución!')
+#    print('¡No solution!')
 
 #c.visualizar(I)
 
