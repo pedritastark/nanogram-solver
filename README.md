@@ -78,6 +78,9 @@ The plot generated is the image of the solved nanogram.
 
 
 
+# Aprecciation
+This project exists thanks to the hard work of the School of Engineering, Science, and Technology under the leadership of Daniel Alfonso Bojacá Torres, a professor at the University of Rosario.
+
 
 
 
